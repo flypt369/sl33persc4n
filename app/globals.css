@@ -457,13 +457,13 @@ body {
   transform: translate(-50%, -50%);
   transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
   transform-origin: center center;
-  width: 420px;
-  height: 540px;
+  width: 400px;
+  height: 520px;
 }
 
 .stacked-module.main-module {
-  width: 460px;
-  height: 580px;
+  width: 440px;
+  height: 560px;
 }
 
 .stacked-module.active {
@@ -554,12 +554,12 @@ body {
 }
 
 /* Enhanced Card Padding */
-.gundam-diagonal .card-content-padded {
-  padding: 2rem;
+.card-content-padded {
+  padding: 2.5rem;
 }
 
-.gundam-diagonal .card-header-padded {
-  padding: 2rem 2rem 1.5rem 2rem;
+.card-header-padded {
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
 }
 
 /* Compact Module Styling */

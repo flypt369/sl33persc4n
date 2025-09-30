@@ -229,7 +229,7 @@ export default function SleeperScanDashboard() {
                       <span>SUPPRESSION</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <Progress value={metrics.suppressionPressure} className="flex-1 mr-2 h-2 eva-progress" />
+                      <Progress value={metrics.suppressionPressure} className="flex-1 mr-3 h-2 eva-progress" />
                       <span className="terminal-text text-sm font-bold">{Math.round(metrics.suppressionPressure)}</span>
                     </div>
                   </div>
@@ -240,7 +240,7 @@ export default function SleeperScanDashboard() {
                       <span>VELOCITY</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <Progress value={metrics.narrativeVelocity} className="flex-1 mr-2 h-2 eva-progress" />
+                      <Progress value={metrics.narrativeVelocity} className="flex-1 mr-3 h-2 eva-progress" />
                       <span className="terminal-text text-sm font-bold">{Math.round(metrics.narrativeVelocity)}</span>
                     </div>
                   </div>
@@ -251,7 +251,7 @@ export default function SleeperScanDashboard() {
                       <span>VARIANCE</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <Progress value={metrics.sourceCredibilityVariance} className="flex-1 mr-2 h-2 eva-progress" />
+                      <Progress value={metrics.sourceCredibilityVariance} className="flex-1 mr-3 h-2 eva-progress" />
                       <span className="terminal-text text-sm font-bold">{Math.round(metrics.sourceCredibilityVariance)}</span>
                     </div>
                   </div>
@@ -262,14 +262,14 @@ export default function SleeperScanDashboard() {
                       <span>AWARENESS</span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <Progress value={metrics.publicAwareness} className="flex-1 mr-2 h-2 eva-progress" />
+                      <Progress value={metrics.publicAwareness} className="flex-1 mr-3 h-2 eva-progress" />
                       <span className="terminal-text text-sm font-bold">{Math.round(metrics.publicAwareness)}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Compact Analysis */}
-                <div className="tech-readout p-4 space-y-3">
+                <div className="tech-readout p-5 space-y-3">
                   <div className="mecha-heading text-sm flex items-center gap-2">
                     <div className="sync-indicator"></div>
                     TACTICAL ANALYSIS
@@ -299,15 +299,15 @@ export default function SleeperScanDashboard() {
               </CardHeader>
               <CardContent className="card-content-padded space-y-4">
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center tech-readout p-2">
+                  <div className="flex justify-between items-center tech-readout p-3">
                     <span className="technical-text text-sm">DeFi Protocols</span>
                     <span className="terminal-text font-bold status-safe">847</span>
                   </div>
-                  <div className="flex justify-between items-center tech-readout p-2">
+                  <div className="flex justify-between items-center tech-readout p-3">
                     <span className="technical-text text-sm">Social Networks</span>
                     <span className="terminal-text font-bold status-warning">234</span>
                   </div>
-                  <div className="flex justify-between items-center tech-readout p-2">
+                  <div className="flex justify-between items-center tech-readout p-3">
                     <span className="technical-text text-sm">News Aggregators</span>
                     <span className="terminal-text font-bold status-info">166</span>
                   </div>
@@ -331,19 +331,19 @@ export default function SleeperScanDashboard() {
               </CardHeader>
               <CardContent className="card-content-padded space-y-4">
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between tech-readout p-2">
+                  <div className="flex items-center justify-between tech-readout p-3">
                     <span className="technical-text text-sm">Active Threats</span>
                     <Badge variant="destructive" className="status-critical border-current">
                       <span className="terminal-text font-bold">{stats.activeAlerts}</span>
                     </Badge>
                   </div>
-                  <div className="flex items-center justify-between tech-readout p-2">
+                  <div className="flex items-center justify-between tech-readout p-3">
                     <span className="technical-text text-sm">Neutralized</span>
                     <Badge variant="outline" className="status-safe border-current">
                       <span className="terminal-text font-bold">156</span>
                     </Badge>
                   </div>
-                  <div className="flex items-center justify-between tech-readout p-2">
+                  <div className="flex items-center justify-between tech-readout p-3">
                     <span className="technical-text text-sm">Under Analysis</span>
                     <Badge variant="outline" className="status-warning border-current">
                       <span className="terminal-text font-bold">89</span>
@@ -369,15 +369,15 @@ export default function SleeperScanDashboard() {
               </CardHeader>
               <CardContent className="card-content-padded space-y-4">
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center tech-readout p-2">
+                  <div className="flex justify-between items-center tech-readout p-3">
                     <span className="technical-text text-sm">Global Nodes</span>
                     <span className="terminal-text font-bold status-safe">2,847</span>
                   </div>
-                  <div className="flex justify-between items-center tech-readout p-2">
+                  <div className="flex justify-between items-center tech-readout p-3">
                     <span className="technical-text text-sm">Data Streams</span>
                     <span className="terminal-text font-bold status-info">1,234</span>
                   </div>
-                  <div className="flex justify-between items-center tech-readout p-2">
+                  <div className="flex justify-between items-center tech-readout p-3">
                     <span className="technical-text text-sm">Latency</span>
                     <span className="terminal-text font-bold status-safe">12ms</span>
                   </div>
