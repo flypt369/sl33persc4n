@@ -48,7 +48,6 @@ export default function SleeperScanDashboard() {
 
   const [isOnline, setIsOnline] = useState(true)
   const [activeModule, setActiveModule] = useState(0)
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
 
   // Simulate real-time updates with Eva-style fluctuations
   useEffect(() => {
@@ -174,7 +173,7 @@ export default function SleeperScanDashboard() {
         </div>
       </div>
 
-      {/* Swipeable Module Container */}
+      {/* Stacked Module Container */}
       <div className="relative">
         <div className="module-container">
           
@@ -444,4 +443,60 @@ export default function SleeperScanDashboard() {
       </div>
 
       {/* Quick Stats Bar */}
-      <div className="grid grid-cols-4
+      <div className="grid grid-cols-4 gap-4 mt-8 px-4">
+        <Card className="gundam-card">
+          <CardContent className="p-4 text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Hexagon className="h-5 w-5 status-info mr-2" />
+              <span className="technical-text text-xs">PROTOCOLS</span>
+            </div>
+            <div className="mecha-heading text-2xl status-info">{stats.protocolsMonitored.toLocaleString()}</div>
+          </CardContent>
+        </Card>
+        
+        <Card className="gundam-card">
+          <CardContent className="p-4 text-center">
+            <div className="flex items-center justify-center mb-2">
+              <AlertTriangle className="h-5 w-5 status-warning mr-2" />
+              <span className="technical-text text-xs">ALERTS</span>
+            </div>
+            <div className="mecha-heading text-2xl status-warning">{stats.activeAlerts}</div>
+          </CardContent>
+        </Card>
+        
+        <Card className="gundam-card">
+          <CardContent className="p-4 text-center">
+            <div className="flex items-center justify-center mb-2">
+              <BarChart3 className="h-5 w-5 status-safe mr-2" />
+              <span className="technical-text text-xs">DATA POINTS</span>
+            </div>
+            <div className="mecha-heading text-2xl status-safe">{(stats.dataPoints / 1000).toFixed(0)}K</div>
+          </CardContent>
+        </Card>
+        
+        <Card className="gundam-card">
+          <CardContent className="p-4 text-center">
+            <div className="flex items-center justify-center mb-2">
+              <Gauge className="h-5 w-5 status-info mr-2" />
+              <span className="technical-text text-xs">NEURAL LOAD</span>
+            </div>
+            <div className="mecha-heading text-2xl status-info">67%</div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Terminal Footer */}
+      <div className="text-center py-8 border-t border-border/30 mt-8">
+        <div className="tech-readout inline-block p-4">
+          <p className="terminal-text text-sm">
+            SLEEPERSCAN v3.0.1 • NEURAL ENGINE ONLINE • 
+            <span className="status-safe"> SECURE CONNECTION ESTABLISHED</span>
+          </p>
+          <p className="technical-text text-xs mt-2 opacity-60">
+            TACTICAL INTELLIGENCE SYSTEM • NERV COMPATIBLE • PATTERN RECOGNITION ACTIVE
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
