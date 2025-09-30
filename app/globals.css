@@ -435,38 +435,51 @@ body {
   background: linear-gradient(180deg, var(--glow-hover) 0%, var(--brand-highlight) 100%);
 }
 
-/* Modular Swipeable Interface */
-.swipe-container {
+/* Centered Stacked Module Interface */
+.module-container {
+  position: relative;
+  height: 600px;
+  width: 100%;
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  gap: 4rem;
-  padding: 2rem 4rem;
-  -webkit-overflow-scrolling: touch;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
 }
 
-.swipe-container::-webkit-scrollbar {
-  display: none;
+.stacked-module {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-origin: center center;
+  width: 400px;
+  max-width: 90vw;
 }
 
-.swipe-module {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  min-width: 320px;
-  max-width: 400px;
+.stacked-module.main-module {
+  width: 450px;
+  max-width: 95vw;
 }
 
-.main-module {
-  min-width: 380px;
-  max-width: 450px;
+.stacked-module.active {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  filter: blur(0px);
+  pointer-events: auto;
+}
+
+.stacked-module.inactive {
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(0.85) rotateY(-15deg) translateZ(-100px);
+  opacity: 0.3;
+  filter: blur(2px);
+  pointer-events: none;
+}
+
+.stacked-module.main-module.active {
+  transform: translate(-50%, -50%) scale(1.05);
 }
 
 /* Diagonal Gundam-style Cards */

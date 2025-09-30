@@ -103,15 +103,7 @@ export default function SleeperScanDashboard() {
   }
 
   const scrollToModule = (index: number) => {
-    if (scrollContainerRef.current) {
-      const container = scrollContainerRef.current
-      const moduleWidth = container.scrollWidth / 5 // 5 modules total
-      container.scrollTo({
-        left: moduleWidth * index,
-        behavior: 'smooth'
-      })
-      setActiveModule(index)
-    }
+    setActiveModule(index)
   }
 
   const modules = [
@@ -187,16 +179,10 @@ export default function SleeperScanDashboard() {
         <div 
           ref={scrollContainerRef}
           className="swipe-container"
-          onScroll={(e) => {
-            const container = e.currentTarget
-            const moduleWidth = container.scrollWidth / 5
-            const currentModule = Math.round(container.scrollLeft / moduleWidth)
-            setActiveModule(currentModule)
-          }}
         >
           
           {/* Main Module - Narrative Tension Index */}
-          <div className="swipe-module main-module">
+          <div className={`swipe-module main-module ${activeModule === 0 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal tension-main-display h-full">
               <CardHeader className="card-header-padded pb-4">
                 <CardTitle className="mecha-heading text-xl flex items-center gap-3">
@@ -307,7 +293,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Protocol Intelligence Module */}
-          <div className="swipe-module compact-module">
+          <div className={`swipe-module compact-module ${activeModule === 1 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
@@ -339,7 +325,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Threat Assessment Module */}
-          <div className="swipe-module compact-module">
+          <div className={`swipe-module compact-module ${activeModule === 2 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
@@ -377,7 +363,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Network Operations Module */}
-          <div className="swipe-module compact-module">
+          <div className={`swipe-module compact-module ${activeModule === 3 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
@@ -409,7 +395,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Command Center Module */}
-          <div className="swipe-module compact-module">
+          <div className={`swipe-module compact-module ${activeModule === 4 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
