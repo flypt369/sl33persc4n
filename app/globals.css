@@ -435,6 +435,203 @@ body {
   background: linear-gradient(180deg, var(--glow-hover) 0%, var(--brand-highlight) 100%);
 }
 
+/* Modular Swipeable Interface */
+.swipe-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  gap: 2rem;
+  padding: 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.swipe-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.swipe-module {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  min-width: 320px;
+  max-width: 400px;
+}
+
+.main-module {
+  min-width: 380px;
+  max-width: 450px;
+}
+
+/* Diagonal Gundam-style Cards */
+.gundam-diagonal {
+  background: linear-gradient(135deg, rgba(37, 28, 49, 0.95) 0%, rgba(64, 46, 255, 0.08) 100%);
+  border: 2px solid var(--mecha-outline);
+  position: relative;
+  clip-path: polygon(
+    0 15px,
+    15px 0,
+    calc(100% - 15px) 0,
+    100% 15px,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    15px 100%,
+    0 calc(100% - 15px)
+  );
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.gundam-diagonal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--brand-highlight) 20%, 
+    var(--sleeper-logo) 50%, 
+    var(--brand-highlight) 80%, 
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+.gundam-diagonal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    transparent 0%, 
+    var(--brand-highlight) 20%, 
+    var(--sleeper-logo) 50%, 
+    var(--brand-highlight) 80%, 
+    transparent 100%
+  );
+  opacity: 0.6;
+}
+
+.gundam-diagonal:hover {
+  border-color: var(--glow-hover);
+  box-shadow: 
+    0 0 25px rgba(239, 236, 255, 0.3),
+    inset 0 0 25px rgba(64, 46, 255, 0.15);
+  transform: translateY(-3px) scale(1.02);
+}
+
+.gundam-diagonal:hover::before,
+.gundam-diagonal:hover::after {
+  opacity: 1;
+  box-shadow: 0 0 10px var(--glow-hover);
+}
+
+/* Compact Module Styling */
+.compact-module {
+  min-width: 280px;
+  max-width: 320px;
+}
+
+.compact-module .gundam-diagonal {
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+/* Main Tension Module Enhanced */
+.tension-main-display {
+  background: radial-gradient(circle at center, rgba(64, 46, 255, 0.1) 0%, transparent 70%);
+  border: 3px solid var(--sleeper-logo);
+  position: relative;
+}
+
+.tension-main-display::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(45deg, 
+    var(--brand-highlight) 0%, 
+    transparent 25%, 
+    transparent 75%, 
+    var(--sleeper-logo) 100%
+  );
+  z-index: -1;
+  opacity: 0.4;
+  animation: holo-pulse 3s ease-in-out infinite;
+}
+
+/* Navigation Dots */
+.nav-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 237, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+  background: var(--sleeper-logo);
+  box-shadow: 0 0 10px var(--sleeper-logo);
+  transform: scale(1.2);
+}
+
+.nav-dot:hover {
+  background: var(--glow-hover);
+  transform: scale(1.1);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .swipe-container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .swipe-module {
+    min-width: 280px;
+    max-width: 320px;
+  }
+  
+  .main-module {
+    min-width: 300px;
+    max-width: 340px;
+  }
+  
+  .gundam-diagonal {
+    clip-path: polygon(
+      0 8px,
+      8px 0,
+      calc(100% - 8px) 0,
+      100% 8px,
+      100% calc(100% - 8px),
+      calc(100% - 8px) 100%,
+      8px 100%,
+      0 calc(100% - 8px)
+    );
+  }
+}
+
 /* Terminal-style Text Effects */
 .terminal-text {
   font-family: 'Source Code Pro', monospace;
