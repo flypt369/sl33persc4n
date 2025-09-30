@@ -48,9 +48,6 @@ export default function SleeperScanDashboard() {
 
   const [isOnline, setIsOnline] = useState(true)
   const [activeModule, setActiveModule] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
-  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null)
 
   // Simulate real-time updates with Eva-style fluctuations
   useEffect(() => {
@@ -78,85 +75,6 @@ export default function SleeperScanDashboard() {
 
     return () => clearInterval(interval)
   }, [])
-
-  // Parallax swipe handlers
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null)
-    setTouchStart({
-      x: e.targetTouches[0].clientX,
-      y: e.targetTouches[0].clientY
-    })
-  }
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd({
-      x: e.targetTouches[0].clientX,
-      y: e.targetTouches[0].clientY
-    })
-  }
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return
-    
-    const distanceX = touchStart.x - touchEnd.x
-    const distanceY = touchStart.y - touchEnd.y
-    const isLeftSwipe = distanceX > 50
-    const isRightSwipe = distanceX < -50
-    const isUpSwipe = distanceY > 50
-    const isDownSwipe = distanceY < -50
-    
-    // Determine if horizontal or vertical swipe is dominant
-    const isHorizontalSwipe = Math.abs(distanceX) > Math.abs(distanceY)
-    
-    if (isHorizontalSwipe) {
-      if (isLeftSwipe && activeModule < modules.length - 1) {
-        setActiveModule(activeModule + 1)
-      } else if (isRightSwipe && activeModule > 0) {
-        setActiveModule(activeModule - 1)
-      }
-    } else {
-      if (isUpSwipe && activeModule < modules.length - 1) {
-        setActiveModule(activeModule + 1)
-      } else if (isDownSwipe && activeModule > 0) {
-        setActiveModule(activeModule - 1)
-      }
-    }
-  }
-
-  // Mouse wheel handler for desktop
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault()
-    const delta = e.deltaY
-    
-    if (delta > 0 && activeModule < modules.length - 1) {
-      setActiveModule(activeModule + 1)
-    } else if (delta < 0 && activeModule > 0) {
-      setActiveModule(activeModule - 1)
-    }
-  }
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      switch (e.key) {
-        case 'ArrowLeft':
-        case 'ArrowUp':
-          if (activeModule > 0) {
-            setActiveModule(activeModule - 1)
-          }
-          break
-        case 'ArrowRight':
-        case 'ArrowDown':
-          if (activeModule < modules.length - 1) {
-            setActiveModule(activeModule + 1)
-          }
-          break
-      }
-    }
-
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [activeModule, modules.length])
 
   const getIndexColor = (value: number) => {
     if (value >= 80) return "status-critical"
@@ -257,14 +175,7 @@ export default function SleeperScanDashboard() {
 
       {/* Stacked Module Container */}
       <div className="relative">
-        <div 
-          ref={containerRef}
-          className="module-container"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
-          onWheel={handleWheel}
-        >
+        <div className="module-container">
           
           {/* Main Module - Narrative Tension Index */}
           <div className={`stacked-module main-module ${activeModule === 0 ? 'active' : 'inactive'}`}>
