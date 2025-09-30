@@ -441,13 +441,20 @@ body {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  gap: 2rem;
-  padding: 2rem;
+  gap: 4rem;
+  padding: 2rem 4rem;
   -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
 }
 
 .swipe-container::-webkit-scrollbar {
-  height: 6px;
+  display: none;
 }
 
 .swipe-module {
@@ -529,6 +536,15 @@ body {
   box-shadow: 0 0 10px var(--glow-hover);
 }
 
+/* Enhanced Card Padding */
+.gundam-diagonal .card-content-padded {
+  padding: 1.5rem;
+}
+
+.gundam-diagonal .card-header-padded {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
 /* Compact Module Styling */
 .compact-module {
   min-width: 280px;
@@ -574,38 +590,69 @@ body {
 }
 
 /* Navigation Dots */
-.nav-dots {
+.nav-indicators {
+  position: fixed;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 50;
+  background: rgba(37, 28, 49, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--mecha-outline);
+  border-radius: 0;
+  padding: 1rem 0.5rem;
+  clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
 }
 
-.nav-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.nav-indicator {
+  width: 4px;
+  height: 24px;
   background: rgba(255, 255, 237, 0.3);
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.nav-dot.active {
+.nav-indicator::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--sleeper-logo);
+  transition: width 0.3s ease;
+}
+
+.nav-indicator.active {
   background: var(--sleeper-logo);
   box-shadow: 0 0 10px var(--sleeper-logo);
-  transform: scale(1.2);
+  width: 6px;
 }
 
-.nav-dot:hover {
+.nav-indicator.active::before {
+  width: 20px;
+}
+
+.nav-indicator:hover {
   background: var(--glow-hover);
-  transform: scale(1.1);
+  width: 5px;
+}
+
+.nav-indicator:hover::before {
+  width: 15px;
+  background: var(--glow-hover);
 }
 
 /* Mobile Optimizations */
 @media (max-width: 768px) {
   .swipe-container {
-    padding: 1rem;
-    gap: 1rem;
+    padding: 1rem 2rem;
+    gap: 3rem;
   }
   
   .swipe-module {
@@ -616,6 +663,15 @@ body {
   .main-module {
     min-width: 300px;
     max-width: 340px;
+  }
+  
+  .nav-indicators {
+    left: 1rem;
+    padding: 0.5rem 0.25rem;
+  }
+  
+  .nav-indicator {
+    height: 20px;
   }
   
   .gundam-diagonal {

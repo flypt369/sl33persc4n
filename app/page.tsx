@@ -198,7 +198,7 @@ export default function SleeperScanDashboard() {
           {/* Main Module - Narrative Tension Index */}
           <div className="swipe-module main-module">
             <Card className="gundam-diagonal tension-main-display h-full">
-              <CardHeader className="pb-4">
+              <CardHeader className="card-header-padded pb-4">
                 <CardTitle className="mecha-heading text-xl flex items-center gap-3">
                   <Brain className="h-6 w-6 status-info" />
                   NARRATIVE TENSION INDEX
@@ -212,7 +212,7 @@ export default function SleeperScanDashboard() {
                 </p>
               </CardHeader>
               
-              <CardContent className="space-y-6">
+              <CardContent className="card-content-padded space-y-6">
                 {/* Main Display */}
                 <div className="text-center space-y-4">
                   <div className="relative">
@@ -309,13 +309,13 @@ export default function SleeperScanDashboard() {
           {/* Protocol Intelligence Module */}
           <div className="swipe-module compact-module">
             <Card className="gundam-diagonal h-full">
-              <CardHeader>
+              <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
                   <Cpu className="h-5 w-5 status-info" />
                   PROTOCOL INTEL
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="card-content-padded space-y-4">
                 <div className="space-y-3">
                   <div className="flex justify-between items-center tech-readout p-2">
                     <span className="technical-text text-sm">DeFi Protocols</span>
@@ -341,13 +341,13 @@ export default function SleeperScanDashboard() {
           {/* Threat Assessment Module */}
           <div className="swipe-module compact-module">
             <Card className="gundam-diagonal h-full">
-              <CardHeader>
+              <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
                   <Radar className="h-5 w-5 status-warning" />
                   THREAT ASSESSMENT
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="card-content-padded space-y-4">
                 <div className="space-y-3">
                   <div className="flex items-center justify-between tech-readout p-2">
                     <span className="technical-text text-sm">Active Threats</span>
@@ -379,13 +379,13 @@ export default function SleeperScanDashboard() {
           {/* Network Operations Module */}
           <div className="swipe-module compact-module">
             <Card className="gundam-diagonal h-full">
-              <CardHeader>
+              <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
                   <Globe className="h-5 w-5 status-safe" />
                   NETWORK OPS
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="card-content-padded space-y-4">
                 <div className="space-y-3">
                   <div className="flex justify-between items-center tech-readout p-2">
                     <span className="technical-text text-sm">Global Nodes</span>
@@ -411,13 +411,13 @@ export default function SleeperScanDashboard() {
           {/* Command Center Module */}
           <div className="swipe-module compact-module">
             <Card className="gundam-diagonal h-full">
-              <CardHeader>
+              <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
                   <Shield className="h-5 w-5 status-info" />
                   COMMAND CENTER
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
+              <CardContent className="card-content-padded space-y-3">
                 <Button className="eva-button w-full h-12">
                   <div className="text-center">
                     <Brain className="h-6 w-6 mx-auto mb-1" />
@@ -448,12 +448,12 @@ export default function SleeperScanDashboard() {
 
         </div>
 
-        {/* Navigation Dots */}
-        <div className="nav-dots">
+        {/* Left-Justified Navigation Indicators */}
+        <div className="nav-indicators">
           {modules.map((_, index) => (
             <div
               key={index}
-              className={`nav-dot ${activeModule === index ? 'active' : ''}`}
+              className={`nav-indicator ${activeModule === index ? 'active' : ''}`}
               onClick={() => scrollToModule(index)}
             />
           ))}
