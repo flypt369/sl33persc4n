@@ -5,175 +5,360 @@
 @tailwind utilities;
 
 :root {
-  --background: 220 10% 4%;
-  --foreground: 210 40% 98%;
-  --card: 220 13% 8%;
-  --card-foreground: 210 40% 98%;
-  --popover: 220 13% 8%;
-  --popover-foreground: 210 40% 98%;
-  --primary: 47 96% 53%;
-  --primary-foreground: 220 13% 8%;
-  --secondary: 215 25% 15%;
-  --secondary-foreground: 210 40% 98%;
-  --muted: 215 25% 15%;
-  --muted-foreground: 217 10% 65%;
-  --accent: 271 100% 50%;
-  --accent-foreground: 210 40% 98%;
+  /* Retro-Futurist Mecha Palette */
+  --mecha-bg: #251C31;
+  --mecha-outline: #FFFFED;
+  --sleeper-logo: #F6AF0B;
+  --glow-hover: #EFECFF;
+  --brand-highlight: #402EFF;
+  
+  /* Tailwind CSS Variables */
+  --background: 37 22% 16%;
+  --foreground: 60 100% 93%;
+  --card: 37 22% 20%;
+  --card-foreground: 60 100% 93%;
+  --popover: 37 22% 20%;
+  --popover-foreground: 60 100% 93%;
+  --primary: 42 96% 51%;
+  --primary-foreground: 37 22% 16%;
+  --secondary: 248 100% 59%;
+  --secondary-foreground: 60 100% 93%;
+  --muted: 37 22% 25%;
+  --muted-foreground: 60 20% 70%;
+  --accent: 248 100% 59%;
+  --accent-foreground: 60 100% 93%;
   --destructive: 0 84% 60%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 215 25% 15%;
-  --input: 215 25% 15%;
-  --ring: 47 96% 53%;
-  --chart-1: 47 96% 53%;
-  --chart-2: 271 100% 50%;
+  --destructive-foreground: 60 100% 93%;
+  --border: 60 100% 93%;
+  --input: 37 22% 25%;
+  --ring: 42 96% 51%;
+  --chart-1: 42 96% 51%;
+  --chart-2: 248 100% 59%;
   --chart-3: 142 76% 36%;
   --chart-4: 346 87% 43%;
   --chart-5: 197 100% 50%;
-  --radius: 0.75rem;
-  
-  /* Custom SleeperScan Variables */
-  --neon-primary: #ffe135;
-  --neon-secondary: #b400ff;
-  --neon-accent: #00d4ff;
-  --cyber-green: #10b981;
-  --danger-red: #ef4444;
-  --warning-orange: #f97316;
-  --mecha-blue: #3b82f6;
+  --radius: 0rem;
 }
 
 * {
-  border-color: hsl(var(--border));
+  border-color: var(--mecha-outline);
 }
 
 body {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a1a 100%);
-  color: hsl(var(--foreground));
+  background: var(--mecha-bg);
+  color: var(--mecha-outline);
   font-family: 'Rajdhani', sans-serif;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.4;
   overflow-x: hidden;
 }
 
-/* Typography System */
-.sleeper-title {
+/* Retro-Futurist Typography */
+.eva-title {
   font-family: 'Orbitron', monospace;
   font-weight: 900;
   font-style: italic;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  background: linear-gradient(135deg, var(--neon-primary) 0%, var(--neon-secondary) 50%, var(--neon-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(255, 225, 53, 0.3);
+  color: var(--sleeper-logo);
+  text-shadow: 
+    0 0 10px var(--sleeper-logo),
+    0 0 20px var(--sleeper-logo),
+    0 0 40px rgba(246, 175, 11, 0.5);
   position: relative;
 }
 
-.sleeper-subtitle {
-  font-family: 'Source Code Pro', monospace;
-  font-style: italic;
-  font-weight: 400;
-  color: hsl(var(--muted-foreground));
-  letter-spacing: 0.02em;
+.eva-title::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--brand-highlight), transparent, var(--brand-highlight));
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(8px);
 }
 
-.elegant-text {
+.gundam-subtitle {
   font-family: 'Source Code Pro', monospace;
   font-style: italic;
   font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.7;
+  color: var(--glow-hover);
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 5px rgba(239, 236, 255, 0.3);
 }
 
 .mecha-heading {
   font-family: 'Orbitron', monospace;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--neon-accent);
-  text-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+  letter-spacing: 0.15em;
+  color: var(--mecha-outline);
+  text-shadow: 0 0 8px rgba(255, 255, 237, 0.4);
 }
 
-/* Neon Effects */
-.neon-glow {
-  box-shadow: 
-    0 0 20px rgba(255, 225, 53, 0.1),
-    0 0 40px rgba(180, 0, 255, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 225, 53, 0.2);
-  background: rgba(26, 26, 28, 0.8);
-  backdrop-filter: blur(10px);
+.technical-text {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  color: var(--glow-hover);
+}
+
+/* Mecha UI Framework */
+.eva-panel {
+  background: rgba(37, 28, 49, 0.95);
+  border: 2px solid var(--mecha-outline);
+  position: relative;
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
   transition: all 0.3s ease;
 }
 
-.neon-glow:hover {
-  box-shadow: 
-    0 0 30px rgba(255, 225, 53, 0.2),
-    0 0 60px rgba(180, 0, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 225, 53, 0.4);
-  transform: translateY(-2px);
-}
-
-.cyber-grid {
-  background-image: 
-    linear-gradient(rgba(255, 225, 53, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 225, 53, 0.03) 1px, transparent 1px);
-  background-size: 20px 20px;
-  position: relative;
-}
-
-.cyber-grid::before {
+.eva-panel::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(180, 0, 255, 0.05) 0%, transparent 70%);
-  pointer-events: none;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-highlight) 0%, transparent 50%, var(--brand-highlight) 100%);
+  opacity: 0.8;
 }
 
-/* Mecha UI Elements */
-.mecha-panel {
-  background: linear-gradient(135deg, rgba(26, 26, 28, 0.9) 0%, rgba(20, 20, 25, 0.9) 100%);
-  border: 2px solid transparent;
-  background-clip: padding-box;
+.eva-panel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  bottom: 0;
+  background: linear-gradient(180deg, var(--brand-highlight) 0%, transparent 50%, var(--brand-highlight) 100%);
+  opacity: 0.8;
+}
+
+.eva-panel:hover {
+  border-color: var(--glow-hover);
+  box-shadow: 
+    0 0 20px rgba(239, 236, 255, 0.2),
+    inset 0 0 20px rgba(64, 46, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.gundam-card {
+  background: linear-gradient(135deg, rgba(37, 28, 49, 0.9) 0%, rgba(64, 46, 255, 0.1) 100%);
+  border: 1px solid var(--mecha-outline);
+  position: relative;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: all 0.3s ease;
+}
+
+.gundam-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--brand-highlight) 50%, transparent 100%);
+  opacity: 0.6;
+}
+
+.gundam-card:hover {
+  border-color: var(--glow-hover);
+  box-shadow: 0 0 15px rgba(239, 236, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.gundam-card:hover::before {
+  opacity: 1;
+  box-shadow: 0 0 10px var(--brand-highlight);
+}
+
+/* Technical Readout Displays */
+.tech-readout {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--mecha-outline);
+  border-left: 3px solid var(--brand-highlight);
+  font-family: 'Source Code Pro', monospace;
+  position: relative;
+}
+
+.tech-readout::before {
+  content: '▶';
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--brand-highlight);
+  font-size: 8px;
+}
+
+.status-display {
+  background: linear-gradient(90deg, rgba(64, 46, 255, 0.1) 0%, transparent 100%);
+  border-left: 2px solid var(--brand-highlight);
+  position: relative;
+}
+
+.status-display::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--brand-highlight);
+  animation: eva-scan 2s linear infinite;
+}
+
+@keyframes eva-scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100%); opacity: 0; }
+}
+
+/* Mecha Progress Bars */
+.eva-progress {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--mecha-outline);
   position: relative;
   overflow: hidden;
 }
 
-.mecha-panel::before {
+.eva-progress::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, var(--neon-primary) 0%, var(--neon-secondary) 50%, var(--neon-accent) 100%);
-  z-index: -1;
-  margin: -2px;
-  border-radius: inherit;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    rgba(255, 255, 237, 0.1) 1px,
+    transparent 2px,
+    transparent 10px
+  );
+  pointer-events: none;
 }
 
-.mecha-panel::after {
+.eva-progress-fill {
+  background: linear-gradient(90deg, var(--brand-highlight) 0%, var(--sleeper-logo) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.eva-progress-fill::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, var(--neon-accent) 50%, transparent 100%);
-  opacity: 0.6;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: eva-sweep 2s ease-in-out infinite;
 }
 
-.holographic-border {
+@keyframes eva-sweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Status Indicators */
+.status-critical {
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+  animation: eva-alert 1s ease-in-out infinite alternate;
+}
+
+.status-warning {
+  color: var(--sleeper-logo);
+  text-shadow: 0 0 8px rgba(246, 175, 11, 0.6);
+}
+
+.status-safe {
+  color: #44ff88;
+  text-shadow: 0 0 8px rgba(68, 255, 136, 0.6);
+}
+
+.status-info {
+  color: var(--brand-highlight);
+  text-shadow: 0 0 8px rgba(64, 46, 255, 0.6);
+}
+
+@keyframes eva-alert {
+  0% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Mecha Buttons */
+.eva-button {
+  background: linear-gradient(135deg, rgba(64, 46, 255, 0.2) 0%, rgba(246, 175, 11, 0.1) 100%);
+  border: 1px solid var(--mecha-outline);
+  color: var(--mecha-outline);
+  font-family: 'Orbitron', monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   position: relative;
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  background: rgba(10, 10, 10, 0.8);
+  clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
 
-.holographic-border::before {
+.eva-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(239, 236, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.eva-button:hover {
+  border-color: var(--glow-hover);
+  color: var(--glow-hover);
+  box-shadow: 
+    0 0 15px rgba(239, 236, 255, 0.4),
+    inset 0 0 15px rgba(64, 46, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.eva-button:hover::before {
+  left: 100%;
+}
+
+/* Neural Network Grid */
+.neural-grid {
+  background-image: 
+    linear-gradient(rgba(255, 255, 237, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 237, 0.05) 1px, transparent 1px);
+  background-size: 25px 25px;
+  position: relative;
+}
+
+.neural-grid::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(64, 46, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Holographic Effects */
+.holo-display {
+  position: relative;
+  background: rgba(37, 28, 49, 0.8);
+  border: 1px solid var(--mecha-outline);
+}
+
+.holo-display::before {
   content: '';
   position: absolute;
   top: -1px;
@@ -181,173 +366,54 @@ body {
   right: -1px;
   bottom: -1px;
   background: linear-gradient(45deg, 
-    var(--neon-accent) 0%, 
+    var(--brand-highlight) 0%, 
     transparent 25%, 
     transparent 75%, 
-    var(--neon-accent) 100%);
+    var(--glow-hover) 100%);
   z-index: -1;
-  border-radius: inherit;
-  opacity: 0.5;
-  animation: holographic-pulse 3s ease-in-out infinite;
+  opacity: 0.4;
+  animation: holo-pulse 3s ease-in-out infinite;
 }
 
-@keyframes holographic-pulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.7; }
-}
-
-/* Status Indicators */
-.status-critical {
-  color: var(--danger-red);
-  text-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
-  animation: critical-pulse 1.5s ease-in-out infinite;
-}
-
-.status-warning {
-  color: var(--warning-orange);
-  text-shadow: 0 0 10px rgba(249, 115, 22, 0.5);
-}
-
-.status-safe {
-  color: var(--cyber-green);
-  text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
-}
-
-.status-info {
-  color: var(--mecha-blue);
-  text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-}
-
-@keyframes critical-pulse {
-  0%, 100% { opacity: 1; }
+@keyframes holo-pulse {
+  0%, 100% { opacity: 0.2; }
   50% { opacity: 0.6; }
 }
 
-/* Interactive Elements */
-.cyber-button {
-  background: linear-gradient(135deg, rgba(255, 225, 53, 0.1) 0%, rgba(180, 0, 255, 0.1) 100%);
-  border: 1px solid rgba(255, 225, 53, 0.3);
-  color: var(--neon-primary);
-  font-family: 'Orbitron', monospace;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.cyber-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 225, 53, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.cyber-button:hover::before {
-  left: 100%;
-}
-
-.cyber-button:hover {
-  border-color: rgba(255, 225, 53, 0.6);
-  box-shadow: 0 0 20px rgba(255, 225, 53, 0.2);
-  transform: translateY(-1px);
-}
-
-/* Progress Bars */
-.tension-progress {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid rgba(255, 225, 53, 0.2);
-  overflow: hidden;
-  position: relative;
-}
-
-.tension-progress::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, 
-    transparent 0%, 
-    rgba(255, 255, 255, 0.1) 50%, 
-    transparent 100%);
-  animation: progress-scan 2s linear infinite;
-}
-
-@keyframes progress-scan {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
-}
-
-/* Metric Cards */
-.metric-card {
-  background: rgba(26, 26, 28, 0.9);
-  border: 1px solid rgba(255, 225, 53, 0.2);
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.metric-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--neon-primary) 0%, var(--neon-secondary) 100%);
-  opacity: 0.6;
-}
-
-.metric-card:hover {
-  border-color: rgba(255, 225, 53, 0.4);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Animations */
-@keyframes data-stream {
-  0% { transform: translateY(100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-100%); opacity: 0; }
-}
-
+/* Data Stream Animation */
 .data-stream {
-  animation: data-stream 3s linear infinite;
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes neural-pulse {
-  0%, 100% { 
-    box-shadow: 0 0 20px rgba(255, 225, 53, 0.2);
-  }
-  50% { 
-    box-shadow: 0 0 40px rgba(255, 225, 53, 0.4), 0 0 60px rgba(180, 0, 255, 0.2);
-  }
+.data-stream::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent 0%, var(--brand-highlight) 50%, transparent 100%);
+  animation: stream-flow 2s linear infinite;
 }
 
-.neural-pulse {
-  animation: neural-pulse 2s ease-in-out infinite;
+@keyframes stream-flow {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .sleeper-title {
-    font-size: 2rem;
+  .eva-title {
+    font-size: 2.5rem;
   }
   
-  .cyber-grid {
-    background-size: 15px 15px;
+  .neural-grid {
+    background-size: 20px 20px;
   }
   
-  .mecha-panel {
-    margin: 0.5rem;
+  .eva-panel {
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
   }
 }
 
@@ -357,14 +423,36 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(10, 10, 10, 0.5);
+  background: rgba(37, 28, 49, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--neon-primary) 0%, var(--neon-secondary) 100%);
-  border-radius: 4px;
+  background: linear-gradient(180deg, var(--brand-highlight) 0%, var(--sleeper-logo) 100%);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--neon-secondary) 0%, var(--neon-accent) 100%);
+  background: linear-gradient(180deg, var(--glow-hover) 0%, var(--brand-highlight) 100%);
+}
+
+/* Terminal-style Text Effects */
+.terminal-text {
+  font-family: 'Source Code Pro', monospace;
+  color: var(--glow-hover);
+  text-shadow: 0 0 5px rgba(239, 236, 255, 0.5);
+}
+
+.sync-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--brand-highlight);
+  border-radius: 50%;
+  animation: eva-sync 1.5s ease-in-out infinite;
+  margin-right: 8px;
+}
+
+@keyframes eva-sync {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
 }
