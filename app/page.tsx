@@ -196,7 +196,7 @@ export default function SleeperScanDashboard() {
               
               <CardContent className="card-content-padded space-y-6">
                 {/* Main Display */}
-                <div className="text-center space-y-4">
+                <div className="text-center space-y-6">
                   <div className="relative">
                     <div className={`text-7xl font-display font-black ${getIndexColor(metrics.overallIndex)} data-stream`}>
                       {Math.round(metrics.overallIndex)}
@@ -213,7 +213,7 @@ export default function SleeperScanDashboard() {
                     {getTrendIcon()}
                   </div>
                   
-                  <div className="max-w-xs mx-auto">
+                  <div className="max-w-sm mx-auto">
                     <Progress 
                       value={metrics.overallIndex} 
                       className="h-4 eva-progress" 
@@ -222,7 +222,7 @@ export default function SleeperScanDashboard() {
                 </div>
 
                 {/* Compact Metrics Grid */}
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-2 gap-4">
                   <div className="holo-display p-3 space-y-2">
                     <div className="flex items-center gap-2 technical-text text-xs">
                       <Shield className="h-3 w-3 status-critical" />
@@ -269,7 +269,7 @@ export default function SleeperScanDashboard() {
                 </div>
 
                 {/* Compact Analysis */}
-                <div className="tech-readout p-3 space-y-2">
+                <div className="tech-readout p-4 space-y-3">
                   <div className="mecha-heading text-sm flex items-center gap-2">
                     <div className="sync-indicator"></div>
                     TACTICAL ANALYSIS
@@ -298,7 +298,7 @@ export default function SleeperScanDashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="card-content-padded space-y-4">
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div className="flex justify-between items-center tech-readout p-2">
                     <span className="technical-text text-sm">DeFi Protocols</span>
                     <span className="terminal-text font-bold status-safe">847</span>
@@ -312,7 +312,7 @@ export default function SleeperScanDashboard() {
                     <span className="terminal-text font-bold status-info">166</span>
                   </div>
                 </div>
-                <Button className="eva-button w-full h-10">
+                <Button className="eva-button w-full h-12">
                   <Search className="h-4 w-4 mr-2" />
                   DEEP SCAN
                 </Button>
@@ -330,7 +330,7 @@ export default function SleeperScanDashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="card-content-padded space-y-4">
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div className="flex items-center justify-between tech-readout p-2">
                     <span className="technical-text text-sm">Active Threats</span>
                     <Badge variant="destructive" className="status-critical border-current">
@@ -350,7 +350,7 @@ export default function SleeperScanDashboard() {
                     </Badge>
                   </div>
                 </div>
-                <Button className="eva-button w-full h-10">
+                <Button className="eva-button w-full h-12">
                   <AlertTriangle className="h-4 w-4 mr-2" />
                   THREAT MATRIX
                 </Button>
@@ -368,7 +368,7 @@ export default function SleeperScanDashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="card-content-padded space-y-4">
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div className="flex justify-between items-center tech-readout p-2">
                     <span className="technical-text text-sm">Global Nodes</span>
                     <span className="terminal-text font-bold status-safe">2,847</span>
@@ -382,7 +382,7 @@ export default function SleeperScanDashboard() {
                     <span className="terminal-text font-bold status-safe">12ms</span>
                   </div>
                 </div>
-                <div className="pt-2">
+                <div className="pt-3">
                   <div className="technical-text text-xs mb-2">NETWORK INTEGRITY</div>
                   <Progress value={97} className="h-3 eva-progress" />
                 </div>
@@ -400,25 +400,25 @@ export default function SleeperScanDashboard() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="card-content-padded space-y-3">
-                <Button className="eva-button w-full h-12">
+                <Button className="eva-button w-full h-14">
                   <div className="text-center">
                     <Brain className="h-6 w-6 mx-auto mb-1" />
                     <div className="terminal-text text-xs font-bold">AI ANALYSIS</div>
                   </div>
                 </Button>
-                <Button className="eva-button w-full h-12">
+                <Button className="eva-button w-full h-14">
                   <div className="text-center">
                     <Users className="h-6 w-6 mx-auto mb-1" />
                     <div className="terminal-text text-xs font-bold">SOCIAL INTEL</div>
                   </div>
                 </Button>
-                <Button className="eva-button w-full h-12">
+                <Button className="eva-button w-full h-14">
                   <div className="text-center">
                     <BarChart3 className="h-6 w-6 mx-auto mb-1" />
                     <div className="terminal-text text-xs font-bold">ANALYTICS</div>
                   </div>
                 </Button>
-                <Button className="eva-button w-full h-12">
+                <Button className="eva-button w-full h-14">
                   <div className="text-center">
                     <Gauge className="h-6 w-6 mx-auto mb-1" />
                     <div className="terminal-text text-xs font-bold">DIAGNOSTICS</div>
