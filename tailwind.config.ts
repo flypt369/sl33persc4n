@@ -58,6 +58,7 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-mono)"],
+        serif: ["Georgia", "Times New Roman", "serif"],
         display: ["'Orbitron'", "'Monaco'", "'Consolas'", "monospace"],
         body: ["'Rajdhani'", "'Arial'", "sans-serif"],
         code: ["'Source Code Pro'", "'Fira Code'", "'Monaco'", "monospace"],
