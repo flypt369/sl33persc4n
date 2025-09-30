@@ -5,26 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { 
-  TrendingUp, 
-  TrendingDown, 
-  AlertTriangle, 
-  Eye, 
-  Shield, 
-  Zap,
-  Activity,
-  Brain,
-  Radar,
-  Search,
-  BarChart3,
-  Users,
-  Globe,
-  Lock,
-  Unlock,
-  Target,
-  Cpu,
-  Network
-} from "lucide-react"
+import { TrendingUp, TrendingDown, TriangleAlert as AlertTriangle, Eye, Shield, Zap, Activity, Brain, Radar, Search, ChartBar as BarChart3, Users, Globe, Lock, Clock as Unlock, Target, Cpu, Network } from "lucide-react"
 
 interface TensionMetrics {
   overallIndex: number
