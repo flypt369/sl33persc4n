@@ -153,7 +153,7 @@ export default function SleeperScanDashboard() {
         
         <div className="space-y-2">
           <p className="gundam-subtitle text-lg md:text-xl max-w-3xl mx-auto">
-            ADVANCED TACTICAL INTELLIGENCE SYSTEM
+            Scan the noise.  Surface the silent signals.
           </p>
           <div className="flex items-center justify-center gap-6">
             <div className="tech-readout p-2 rounded">
