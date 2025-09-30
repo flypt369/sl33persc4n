@@ -435,56 +435,51 @@ body {
   background: linear-gradient(180deg, var(--glow-hover) 0%, var(--brand-highlight) 100%);
 }
 
-/* Swipeable Module Container */
-.swipe-container {
+/* Stacked Module Container */
+.module-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
   display: flex;
-  gap: 4rem;
-  padding: 2rem 4rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    black 15%,
-    black 85%,
-    transparent 100%
-  );
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
 }
 
-.swipe-container::-webkit-scrollbar {
-  display: none;
-}
-
-.swipe-module {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
+.stacked-module {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
   transform-origin: center center;
-  min-width: 320px;
-  max-width: 380px;
+  width: 380px;
+  height: 500px;
 }
 
-.swipe-module.main-module {
-  min-width: 380px;
-  max-width: 450px;
+.stacked-module.main-module {
+  width: 420px;
+  height: 520px;
 }
 
-.swipe-module.active {
-  transform: scale(1);
+.stacked-module.active {
+  z-index: 10;
+  transform: translate(-50%, -50%) scale(1) rotateY(0deg);
   opacity: 1;
   filter: blur(0px);
+  pointer-events: auto;
 }
 
-.swipe-module.inactive {
-  transform: scale(0.9);
-  opacity: 0.4;
-  filter: blur(1px);
+.stacked-module.inactive {
+  z-index: 1;
+  transform: translate(-50%, -50%) scale(0.85) rotateY(-15deg) translateZ(-100px);
+  opacity: 0.3;
+  filter: blur(2px);
+  pointer-events: none;
 }
 
-.swipe-module.main-module.active {
-  transform: scale(1.02);
+.stacked-module.main-module.active {
+  transform: translate(-50%, -50%) scale(1.05) rotateY(0deg);
 }
 
 /* Diagonal Gundam-style Cards */
