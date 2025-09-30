@@ -176,13 +176,10 @@ export default function SleeperScanDashboard() {
 
       {/* Swipeable Module Container */}
       <div className="relative">
-        <div 
-          ref={scrollContainerRef}
-          className="swipe-container"
-        >
+        <div className="module-container">
           
           {/* Main Module - Narrative Tension Index */}
-          <div className={`swipe-module main-module ${activeModule === 0 ? 'active' : 'inactive'}`}>
+          <div className={`stacked-module main-module ${activeModule === 0 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal tension-main-display h-full">
               <CardHeader className="card-header-padded pb-4">
                 <CardTitle className="mecha-heading text-xl flex items-center gap-3">
@@ -293,7 +290,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Protocol Intelligence Module */}
-          <div className={`swipe-module compact-module ${activeModule === 1 ? 'active' : 'inactive'}`}>
+          <div className={`stacked-module ${activeModule === 1 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
@@ -325,7 +322,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Threat Assessment Module */}
-          <div className={`swipe-module compact-module ${activeModule === 2 ? 'active' : 'inactive'}`}>
+          <div className={`stacked-module ${activeModule === 2 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
@@ -363,7 +360,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Network Operations Module */}
-          <div className={`swipe-module compact-module ${activeModule === 3 ? 'active' : 'inactive'}`}>
+          <div className={`stacked-module ${activeModule === 3 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
@@ -395,7 +392,7 @@ export default function SleeperScanDashboard() {
           </div>
 
           {/* Command Center Module */}
-          <div className={`swipe-module compact-module ${activeModule === 4 ? 'active' : 'inactive'}`}>
+          <div className={`stacked-module ${activeModule === 4 ? 'active' : 'inactive'}`}>
             <Card className="gundam-diagonal h-full">
               <CardHeader className="card-header-padded">
                 <CardTitle className="mecha-heading text-lg flex items-center gap-2">
@@ -447,52 +444,4 @@ export default function SleeperScanDashboard() {
       </div>
 
       {/* Quick Stats Bar */}
-      <div className="grid grid-cols-4 gap-2 p-4 mt-6">
-        <div className="gundam-card p-3 text-center">
-          <div className="flex items-center justify-center mb-2">
-            <Hexagon className="h-4 w-4 status-info mr-1" />
-            <span className="technical-text text-xs">PROTOCOLS</span>
-          </div>
-          <div className="mecha-heading text-lg status-info">{stats.protocolsMonitored.toLocaleString()}</div>
-        </div>
-        
-        <div className="gundam-card p-3 text-center">
-          <div className="flex items-center justify-center mb-2">
-            <AlertTriangle className="h-4 w-4 status-warning mr-1" />
-            <span className="technical-text text-xs">ALERTS</span>
-          </div>
-          <div className="mecha-heading text-lg status-warning">{stats.activeAlerts}</div>
-        </div>
-        
-        <div className="gundam-card p-3 text-center">
-          <div className="flex items-center justify-center mb-2">
-            <BarChart3 className="h-4 w-4 status-safe mr-1" />
-            <span className="technical-text text-xs">DATA</span>
-          </div>
-          <div className="mecha-heading text-lg status-safe">{(stats.dataPoints / 1000).toFixed(0)}K</div>
-        </div>
-        
-        <div className="gundam-card p-3 text-center">
-          <div className="flex items-center justify-center mb-2">
-            <Gauge className="h-4 w-4 status-info mr-1" />
-            <span className="technical-text text-xs">LOAD</span>
-          </div>
-          <div className="mecha-heading text-lg status-info">67%</div>
-        </div>
-      </div>
-
-      {/* Terminal Footer */}
-      <div className="text-center py-6 border-t border-border/30">
-        <div className="tech-readout inline-block p-3">
-          <p className="terminal-text text-sm">
-            SLEEPERSCAN v3.0.1 • NEURAL ENGINE ONLINE • 
-            <span className="status-safe"> SECURE CONNECTION ESTABLISHED</span>
-          </p>
-          <p className="technical-text text-xs mt-1 opacity-60">
-            TACTICAL INTELLIGENCE SYSTEM • NERV COMPATIBLE • PATTERN RECOGNITION ACTIVE
-          </p>
-        </div>
-      </div>
-    </div>
-  )
-}
+      <div className="grid grid-cols-4
